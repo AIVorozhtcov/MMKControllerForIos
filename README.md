@@ -1,20 +1,16 @@
-# Введение 
-TODO: кратко опишите проект. В этом разделе объясняются цели и задачи этого проекта. 
+# multimedia_demo
 
-# Начало работы
-TODO: объясните пользователям, как запустить и настроить ваш код в их системе. В этом разделе можно предоставить следующие сведения.
-1.	Процесс установки
-2.	Зависимости программного обеспечения
-3.	Последние выпуски
-4.	Ссылки на API
+A new Flutter project.
 
-# Сборка и тестирование
-TODO: опишите и покажите, как выполнить сборку кода и тесты. 
+## Getting Started
 
-# Участие
-TODO: объясните, как другие пользователи и разработчики могут внести свои улучшения в ваш код. 
+This project is a starting point for a Flutter application.
 
-Если вам нужны дополнительные сведения о создании файлов сведений, ознакомьтесь со следующими [руководствами](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). Кроме того, вам, возможно, будут полезны следующие примеры файлов сведений:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
