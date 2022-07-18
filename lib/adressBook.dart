@@ -7,14 +7,14 @@ import 'package:joystick/joystick.dart';
 
 String pashutaAdress = "http://127.0.0.1:5000/";
 String polycomCameraMoveAdress = pashutaAdress +
-    "VideoConf/RealPresence%20Group%20700/1/CameraNearPanTilt?value=";
+    "Polycom/VideoConf/RealPresence%20Group%20700/1/CameraNearPanTilt?value=";
 String polycomCameraZoomAdress = pashutaAdress +
-    "VideoConf/RealPresence%20Group%20700/1/CameraNearZoom?value=";
+    "Polycom/VideoConf/RealPresence%20Group%20700/1/CameraNearZoom?value=";
 String polycomCameraPresetAdress = pashutaAdress +
-    "VideoConf/RealPresence%20Group%20700/1/CameraPresetNearRecall?value=";
-String polycomIREmulationAdress =
-    pashutaAdress + "VideoConf/RealPresence%20Group%20700/1/IREmulation?value=";
-String polycomHangupAdress =
-    pashutaAdress + "VideoConf/RealPresence%20Group%20700/1/Hangup?value=";
-String polycomCallAdress =
-    pashutaAdress + "VideoConf/RealPresence%20Group%20700/1/Hook?value=";
+    "Polycom/VideoConf/RealPresence%20Group%20700/1/CameraPresetNearRecall?value=";
+String polycomIREmulationAdress = pashutaAdress +
+    "Polycom/VideoConf/RealPresence%20Group%20700/1/IREmulation?value=";
+String polycomHangupAdress = pashutaAdress +
+    "Polycom/VideoConf/RealPresence%20Group%20700/1/Hangup?value=";
+String polycomCallAdress = pashutaAdress +
+    "Polycom/VideoConf/RealPresence%20Group%20700/1/Hook?value=";

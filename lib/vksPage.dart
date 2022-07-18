@@ -45,37 +45,51 @@ class _VKSPageState extends State<VKSPage> {
         appBar: AppBar(
           title: Text('ВКС'),
         ),
-        body: Stack(
-          children: [
-            Positioned(
-              top: 150,
-              left: 20,
-              child: SizedBox(
-                height: 300,
-                width: 400,
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey[300], border: Border.all(width: 1)),
-                  child: KeyboardBlock(
-                    numberTapCallback: onNumberChanged,
-                    numberDeleteCallback: onNumberDeleted,
+        body: Container(
+          /*decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/pexels-2.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),*/
+          child: Stack(
+            children: [
+              Positioned.fill(child: backgroundImage()),
+              Positioned(
+                top: 150,
+                left: 20,
+                child: SizedBox(
+                  height: 300,
+                  width: 400,
+                  child: Opacity(
+                    opacity: 0.4,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.blueGrey[700],
+                          borderRadius: BorderRadius.all(Radius.circular(45)),
+                          border: Border.all(width: 1)),
+                      child: KeyboardBlock(
+                        numberTapCallback: onNumberChanged,
+                        numberDeleteCallback: onNumberDeleted,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              left: 500,
-              top: 50,
-              child: SizedBox(
-                  width: 300, height: 600, child: CallInitiationModule()),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: SizedBox(
-                  width: 400, height: 600, child: CameraControlBlock()),
-            ),
-            BottomBar()
-          ],
+              Positioned(
+                left: 500,
+                top: 50,
+                child: SizedBox(
+                    width: 300, height: 600, child: CallInitiationModule()),
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: SizedBox(
+                    width: 400, height: 600, child: CameraControlBlock()),
+              ),
+              BottomBar()
+            ],
+          ),
         ));
   }
 }

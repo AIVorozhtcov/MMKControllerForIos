@@ -320,62 +320,71 @@ class _zoomPanelState extends State<zoomPanel> {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(60),
-      child: Container(
-          decoration: BoxDecoration(
-              color: Colors.blue,
-              border: Border.all(width: 5),
-              borderRadius: BorderRadius.circular(60)),
-          //color: Colors.blue,
-          child: Stack(children: [
-            Align(
-              alignment: Alignment(0.0, -0.8),
-              child: InkWell(
-                  child: Ink(
-                    child: Icon(Icons.zoom_in, size: 40),
-                  ),
-                  onTapDown: (TapDownDetails) {
-                    final requestResponse = zoomCamera("Zoom_plus");
-                    print(requestResponse);
-                  },
-                  onTapUp: (TapUpDetails) {
-                    final requestResponse = zoomCamera("Stop");
-                    print(requestResponse);
+      child: Opacity(
+        opacity: 0.4,
+        child: Container(
+            decoration: BoxDecoration(
+                color: Colors.blueGrey[700],
+                border: Border.all(width: 1),
+                borderRadius: BorderRadius.circular(60)),
+            //color: Colors.blue,
+            child: Stack(children: [
+              Align(
+                alignment: Alignment(0.0, -0.8),
+                child: InkWell(
+                    child: Ink(
+                      child: Icon(Icons.zoom_in, size: 40),
+                    ),
+                    onTapDown: (TapDownDetails) {
+                      final requestResponse = zoomCamera("Zoom_plus");
+                      print(requestResponse);
+                    },
+                    onTapUp: (TapUpDetails) {
+                      final requestResponse = zoomCamera("Stop");
+                      print(requestResponse);
 
-                    setState(() {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                                content: Text('Камера перестала приближаться'));
-                          });
-                    });
-                  }),
-            ),
-            Align(
-              alignment: Alignment(0.0, 0.8),
-              child: InkWell(
-                  child: Ink(
-                    child: Icon(Icons.zoom_out, size: 40),
-                  ),
-                  onTapDown: (TapDownDetails) {
-                    final requestResponse = zoomCamera("Zoom_minus");
-                    print(requestResponse);
-                  },
-                  onTapUp: (TapUpDetails) {
-                    final requestResponse = zoomCamera("Stop");
-                    print(requestResponse);
+                      setState(() {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                  content:
+                                      Text('Камера перестала приближаться'));
+                            });
+                      });
+                    }),
+              ),
+              Center(
+                  child: Text(
+                "ZOOM",
+                style: TextStyle(fontSize: 13),
+              )),
+              Align(
+                alignment: Alignment(0.0, 0.8),
+                child: InkWell(
+                    child: Ink(
+                      child: Icon(Icons.zoom_out, size: 40),
+                    ),
+                    onTapDown: (TapDownDetails) {
+                      final requestResponse = zoomCamera("Zoom_minus");
+                      print(requestResponse);
+                    },
+                    onTapUp: (TapUpDetails) {
+                      final requestResponse = zoomCamera("Stop");
+                      print(requestResponse);
 
-                    setState(() {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                                content: Text('Камера перестала отдаляться'));
-                          });
-                    });
-                  }),
-            ),
-          ])),
+                      setState(() {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                  content: Text('Камера перестала отдаляться'));
+                            });
+                      });
+                    }),
+              ),
+            ])),
+      ),
     );
   }
 }
@@ -393,137 +402,362 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
   @override
   Widget build(BuildContext context) {
     return ClipOval(
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.blue,
-            border: Border.all(width: 5),
-            shape: BoxShape.circle),
-        //color: Colors.blue,
-        child: Stack(children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: InkWell(
-                highlightColor: Colors.transparent,
-                enableFeedback: false,
-                splashFactory: NoSplash.splashFactory,
-                child: Ink(
-                  child: Icon(Icons.arrow_circle_up_outlined,
-                      size:
-                          40 /*Icons.arrow_drop_up  Icons.keyboard_arrow_up*/),
-                ),
-                onTapDown: (TapDownDetails) {
-                  final requestResponse = moveCamera("Up");
-                },
-                onTapUp: (TapUpDetails) {
-                  final requestResponse = moveCamera("Stop");
-
-                  setState(() {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                              content:
-                                  Text('Камера перестала двигаться вверх'));
-                        });
-                  });
-                }),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-                highlightColor: Colors.transparent,
-                enableFeedback: false,
-                splashFactory: NoSplash.splashFactory,
-                child: Ink(
-                  child: Icon(Icons.arrow_circle_down_outlined, size: 40),
-                ),
-                onTapDown: (TapDownDetails) {
-                  final requestResponse = moveCamera("Down");
-                },
-                onTapUp: (TapUpDetails) {
-                  final requestResponse = moveCamera("Stop");
-
-                  setState(() {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                              content: Text('Камера перестала двигаться вниз'));
-                        });
-                  });
-                }),
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: InkWell(
-                highlightColor: Colors.transparent,
-                enableFeedback: false,
-                splashFactory: NoSplash.splashFactory,
-                child: Ink(
-                  child: Icon(Icons.arrow_circle_left_outlined, size: 40),
-                ),
-                onTapDown: (TapDownDetails) {
-                  final requestResponse = moveCamera("Left");
-                },
-                onTapUp: (TapUpDetails) {
-                  final requestResponse = moveCamera("Stop");
-
-                  setState(() {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                              content:
-                                  Text('Камера перестала двигаться влево'));
-                        });
-                  });
-                }),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: InkWell(
-                highlightColor: Colors.transparent,
-                enableFeedback: false,
-                splashFactory: NoSplash.splashFactory,
-                child: Ink(
-                  child: Icon(Icons.arrow_circle_right_outlined, size: 40),
-                ),
-                onTapDown: (TapDownDetails) {
-                  final requestResponse = moveCamera("Right");
-                },
-                onTapUp: (TapUpDetails) {
-                  final requestResponse = moveCamera("Stop");
-
-                  setState(() {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                              content:
-                                  Text('Камера перестала двигаться вправо'));
-                        });
-                  });
-                }),
-          ),
-          /*Center(
-              child: OutlinedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.grey)),
-                  child: Text(
-                    'OK',
-                    style: TextStyle(color: Colors.black),
+      child: Opacity(
+        opacity: 0.4,
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.blueGrey[700],
+              border: Border.all(width: 1),
+              shape: BoxShape.circle),
+          //color: Colors.blue,
+          child: Stack(children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: InkWell(
+                  highlightColor: Colors.transparent,
+                  enableFeedback: false,
+                  splashFactory: NoSplash.splashFactory,
+                  child: Ink(
+                    child: Icon(Icons.keyboard_arrow_up,
+                        size:
+                            40 /*Icons.arrow_drop_up  Icons.arrow_circle_up_outlined*/),
                   ),
-                  onPressed: () async {
-                    final numberInfo = await numberRequest(dialNumber);
-                    print(numberInfo);
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(content: Text(numberInfo));
-                        });
-                  }))
-        */
-        ]),
+                  onTapDown: (TapDownDetails) {
+                    final requestResponse = moveCamera("Up");
+                  },
+                  onTapUp: (TapUpDetails) {
+                    final requestResponse = moveCamera("Stop");
+
+                    setState(() {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                                content:
+                                    Text('Камера перестала двигаться вверх'));
+                          });
+                    });
+                  }),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
+                  highlightColor: Colors.transparent,
+                  enableFeedback: false,
+                  splashFactory: NoSplash.splashFactory,
+                  child: Ink(
+                    child: Icon(Icons.keyboard_arrow_down, size: 40),
+                  ),
+                  onTapDown: (TapDownDetails) {
+                    final requestResponse = moveCamera("Down");
+                  },
+                  onTapUp: (TapUpDetails) {
+                    final requestResponse = moveCamera("Stop");
+
+                    setState(() {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                                content:
+                                    Text('Камера перестала двигаться вниз'));
+                          });
+                    });
+                  }),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: InkWell(
+                  highlightColor: Colors.transparent,
+                  enableFeedback: false,
+                  splashFactory: NoSplash.splashFactory,
+                  child: Ink(
+                    child: Icon(Icons.keyboard_arrow_left, size: 40),
+                  ),
+                  onTapDown: (TapDownDetails) {
+                    final requestResponse = moveCamera("Left");
+                  },
+                  onTapUp: (TapUpDetails) {
+                    final requestResponse = moveCamera("Stop");
+
+                    setState(() {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                                content:
+                                    Text('Камера перестала двигаться влево'));
+                          });
+                    });
+                  }),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: InkWell(
+                  highlightColor: Colors.transparent,
+                  enableFeedback: false,
+                  splashFactory: NoSplash.splashFactory,
+                  child: Ink(
+                    child: Icon(Icons.keyboard_arrow_right, size: 40),
+                  ),
+                  onTapDown: (TapDownDetails) {
+                    final requestResponse = moveCamera("Right");
+                  },
+                  onTapUp: (TapUpDetails) {
+                    final requestResponse = moveCamera("Stop");
+
+                    setState(() {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                                content:
+                                    Text('Камера перестала двигаться вправо'));
+                          });
+                    });
+                  }),
+            ),
+            Center(
+              child: ClipOval(
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: OutlinedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.grey)),
+                      child: Text(
+                        'OK',
+                        style: TextStyle(color: Colors.black, fontSize: 13),
+                      ),
+                      onPressed: () async {
+                        final numberInfo = await numberRequest(dialNumber);
+                        print(numberInfo);
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(content: Text(numberInfo));
+                            });
+                      }),
+                ),
+              ),
+            )
+            /*Center(
+                child: OutlinedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.grey)),
+                    child: Text(
+                      'OK',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () async {
+                      final numberInfo = await numberRequest(dialNumber);
+                      print(numberInfo);
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(content: Text(numberInfo));
+                          });
+                    }))*/
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+class commutationRow extends StatefulWidget {
+  final commutationAddress;
+  const commutationRow({
+    this.commutationAddress,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<commutationRow> createState() => _commutationRowState();
+}
+
+class _commutationRowState extends State<commutationRow> {
+  String commutationInput = '';
+  String commutationOutput = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      width: 1000,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text("INPUT:"),
+          Container(
+            width: 150,
+            child: TextField(
+              onChanged: (String inputValue) {
+                commutationInput = inputValue;
+              },
+            ),
+          ),
+          Text("OUTPUT:"),
+          Container(
+            width: 150,
+            child: TextField(
+              onChanged: (String outputValue) {
+                commutationOutput = outputValue;
+              },
+            ),
+          ),
+          OutlinedButton(
+            child: Text("Отправить запрос"),
+            onPressed: () {
+              String commutationRequest = widget.commutationAddress +
+                  "input=" +
+                  commutationInput +
+                  "&output=" +
+                  commutationOutput;
+              sendRequest(commutationRequest);
+              setState(() {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(content: Text(commutationRequest));
+                    });
+              });
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class volumeCommutationRow extends StatefulWidget {
+  final commutationAddress;
+  const volumeCommutationRow({
+    this.commutationAddress,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<volumeCommutationRow> createState() => _volumeCommutationRowState();
+}
+
+class _volumeCommutationRowState extends State<volumeCommutationRow> {
+  double volumeCommutationValue = 44;
+
+  String commutationInput = '';
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      width: 1000,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text("INPUT:"),
+          Container(
+            width: 150,
+            child: TextField(
+              onChanged: (String inputValue) {
+                commutationInput = inputValue;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 20,
+            child: Slider(
+                value: volumeCommutationValue,
+                min: -12,
+                max: 100,
+                onChanged: (double value) {
+                  setState(() {
+                    volumeCommutationValue = value;
+                  });
+                }),
+          ),
+          OutlinedButton(
+            child: Text("Отправить запрос"),
+            onPressed: () {
+              String commutationRequest = widget.commutationAddress +
+                  commutationInput +
+                  "&vol=" +
+                  volumeCommutationValue.toString();
+              sendRequest(commutationRequest);
+              setState(() {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(content: Text(commutationRequest));
+                    });
+              });
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class tvControlRow extends StatefulWidget {
+  final commutationAddress;
+  const tvControlRow({
+    this.commutationAddress,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<tvControlRow> createState() => _tvControlRowState();
+}
+
+class _tvControlRowState extends State<tvControlRow> {
+  String commutationInput = '';
+  String commutationOutput = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      width: 1000,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text("param1:"),
+          Container(
+            width: 150,
+            child: TextField(
+              onChanged: (String inputValue) {
+                commutationInput = inputValue;
+              },
+            ),
+          ),
+          Text("param2:"),
+          Container(
+            width: 150,
+            child: TextField(
+              onChanged: (String outputValue) {
+                commutationOutput = outputValue;
+              },
+            ),
+          ),
+          OutlinedButton(
+            child: Text("Отправить запрос"),
+            onPressed: () {
+              String commutationRequest = widget.commutationAddress +
+                  commutationInput +
+                  "&param2=" +
+                  commutationOutput;
+              sendRequest(commutationRequest);
+              setState(() {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(content: Text(commutationRequest));
+                    });
+              });
+            },
+          )
+        ],
       ),
     );
   }
@@ -536,8 +770,8 @@ Widget backgroundImage() => ClipRRect(
         child: Opacity(
           opacity: 0.8,
           child: Image.network(
-            'https://images.unsplash.com/photo-1569317002804-ab77bcf1bce4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-            fit: BoxFit.fitHeight,
+            'assets/pexels-1.jpg',
+            fit: BoxFit.fill,
           ),
         ),
       ),

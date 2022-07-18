@@ -37,112 +37,67 @@ class _TVPageState extends State<TVPage> {
         child: Container(
           child: Stack(
             children: [
+              //Center(child: backgroundImage()),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Align(
                     alignment: Alignment.center,
                     child: Center(child: Text('Тв'))),
               ),
+              Align(alignment: Alignment(-1.0, -1.0), child: Text('VIDEO')),
+              Align(
+                alignment: Alignment(-0.8, -1.0),
+                child: commutationRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Videocom/VideoCom/1/cmd/VIDEO?"),
+              ),
+              Align(alignment: Alignment(-1.0, -0.8), child: Text('AUDIO')),
+              Align(
+                alignment: Alignment(-0.8, -0.8),
+                child: commutationRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Videocom/VideoCom/1/cmd/AUDIO?"),
+              ),
+              Align(alignment: Alignment(-1.0, -0.6), child: Text('AV')),
+              Align(
+                alignment: Alignment(-0.8, -0.6),
+                child: commutationRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Videocom/VideoCom/1/cmd/AV?"),
+              ),
+              Align(alignment: Alignment(-1.0, -0.4), child: Text('VOLIN')),
+              Align(
+                alignment: Alignment(-0.8, -0.4),
+                child: volumeCommutationRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Videocom/VideoCom/1/cmd/VOLIN?input="),
+              ),
+              Align(alignment: Alignment(-1.0, -0.2), child: Text('VOLOUT')),
+              Align(
+                alignment: Alignment(-0.8, -0.2),
+                child: volumeCommutationRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Videocom/VideoCom/1/cmd/VOLOUT?output="),
+              ),
+              Align(alignment: Alignment(-1.0, 0.4), child: Text('PWR')),
+              Align(
+                alignment: Alignment(-0.8, 0.4),
+                child: tvControlRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1="),
+              ),
+              Align(alignment: Alignment(-1.0, 0.6), child: Text('INPUT')),
+              Align(
+                alignment: Alignment(-0.8, 0.6),
+                child: tvControlRow(
+                    commutationAddress:
+                        "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Input?param1="),
+              ),
+
               /*Expanded(
                 child: Container(),
               ),*/
-              BottomBar(), /*
-              Align(alignment: Alignment.bottomLeft, child: VolumeSlider()),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.content_paste_outlined),
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ContentPage()),
-                            );
-                          },
-                        ),
-                        Text('Контент')
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                            icon: Icon(Icons.phone),
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const VKSPage()),
-                              );
-                            }),
-                        Text('ВКС')
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.tv),
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ContentPage()),
-                            );
-                          },
-                        ),
-                        Text('ТВ')
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                    icon: Icon(Icons.exit_to_app),
-                    onPressed: () {
-                      setState(() {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                content: Column(
-                                  children: [
-                                    Text('Закрыть контроллер?'),
-                                    Row(
-                                      children: [
-                                        IconButton(
-                                            icon: Icon(Icons.cancel),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            }),
-                                        IconButton(
-                                            icon: Icon(Icons.check),
-                                            onPressed: () {
-                                              Navigator.pushReplacement(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const startingPage()),
-                                              );
-                                            })
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              );
-                            });
-                      });
-                    }),
-              )
-            */
+              BottomBar(),
             ],
           ),
         ),

@@ -82,6 +82,14 @@ Future<String> customRequest(String equipment_type, String equipment_model,
   return decodedResponse;
 }
 
+Future<String> sendRequest(String fullRequest) async {
+  final response = await http.post(Uri.parse(fullRequest));
+  //print(response.body);
+  String decodedResponse = jsonDecode(response.body).toString();
+  print(decodedResponse);
+  return decodedResponse;
+}
+
 Future<String> makeCall(String command_value) async {
   String fullRequest = polycomCallAdress + command_value;
 

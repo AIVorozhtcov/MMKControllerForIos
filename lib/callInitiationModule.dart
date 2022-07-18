@@ -63,7 +63,8 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 elevation: 2.0,
                 fillColor: Colors.green,
                 child: Icon(
-                  Icons.call_outlined,
+                  Icons.call,
+                  color: Colors.white,
                   size: 35.0,
                 ),
                 padding: EdgeInsets.all(15.0),
@@ -114,11 +115,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                                     alignment: Alignment.bottomLeft,
                                     child: ClipOval(
                                       child: Container(
-                                        decoration: BoxDecoration(
-                                            color: Colors.red,
-                                            border: Border.all(
-                                                width: 5, color: Colors.black)),
-                                        //color: Colors.red,
+                                        color: Colors.red,
                                         child: IconButton(
                                             icon: Icon(Icons.cancel),
                                             onPressed: () {
@@ -176,7 +173,8 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 elevation: 2.0,
                 fillColor: Colors.red,
                 child: Icon(
-                  Icons.call_end_outlined,
+                  Icons.call_end,
+                  color: Colors.white,
                   size: 35.0,
                 ),
                 padding: EdgeInsets.all(15.0),
