@@ -9,14 +9,22 @@ import 'my_libraries/globals.dart' as globals;
 
 import 'main.dart';
 import 'vksPage.dart';
+import 'my_functions/hardwareFunctions.dart';
 import 'homePage.dart';
 
 import 'commonWidgets.dart';
 
-class ContentPage extends StatelessWidget {
+class ContentPage extends StatefulWidget {
   const ContentPage({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<ContentPage> createState() => _ContentPageState();
+}
+
+class _ContentPageState extends State<ContentPage> {
+  String fullRequestText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +35,33 @@ class ContentPage extends StatelessWidget {
       ),
       body: Stack(children: [
         //Center(child: backgroundImage()),
-        Center(child: Text('Контент')),
+        Center(
+            child: Row(
+          children: [
+            Text("Текст запроса:"),
+            Container(
+              width: 500,
+              child: TextField(
+                onChanged: (String outputValue) {
+                  fullRequestText = outputValue;
+                },
+              ),
+            ),
+            OutlinedButton(
+              child: Text("Отправить запрос"),
+              onPressed: () {
+                sendRequest(fullRequestText);
+                setState(() {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(content: Text(fullRequestText));
+                      });
+                });
+              },
+            )
+          ],
+        )),
         BottomBar()
       ]),
     );
