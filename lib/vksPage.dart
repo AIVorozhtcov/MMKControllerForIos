@@ -10,6 +10,7 @@ import 'my_libraries/globals.dart' as globals;
 import 'main.dart';
 import 'contentPage.dart';
 import 'commonWidgets.dart';
+import 'my_functions/hardwareFunctions.dart';
 import 'callInitiationModule.dart';
 import 'cameraControlModule.dart';
 
@@ -37,6 +38,9 @@ class _VKSPageState extends State<VKSPage> {
     });
   }
 
+  Future<String> contentSwitchResponse = sendRequest(
+      "http://localhost:5000/Videocom/Test/Model/22/xxx?param1=3&param2=2");
+
   @override
   Widget build(BuildContext context) {
     globals.currentPage = 'VKS';
@@ -62,10 +66,10 @@ class _VKSPageState extends State<VKSPage> {
                   height: 300,
                   width: 400,
                   child: Opacity(
-                    opacity: 0.4,
+                    opacity: 0.7,
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.blueGrey[700],
+                          color: Colors.blue[700],
                           borderRadius: BorderRadius.all(Radius.circular(45)),
                           border: Border.all(width: 1)),
                       child: KeyboardBlock(

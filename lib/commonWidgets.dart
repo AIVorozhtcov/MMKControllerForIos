@@ -158,85 +158,112 @@ class _BottomBarState extends State<BottomBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: checkPage('Content')
-                          ? Colors.grey[600]
-                          : Colors.grey[300],
-                      border: Border(
-                          right: BorderSide(width: 4, color: Colors.blue)),
-                    ),
-                    child: IconButton(
-                      icon: Icon(Icons.content_paste_outlined),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(),
+                  child: OutlinedButton(
+                    style: ButtonStyle(
+                        backgroundColor: checkPage('Content')
+                            ? MaterialStateProperty.all(Colors.purple[400])
+                            : MaterialStateProperty.all(Colors.transparent),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(18.0)))),
+                    child: Center(
+                        child: Text('Контент',
+                            style: TextStyle(
+                                color: Colors.black,
+                                //fontWeight: FontWeight.bold,
+                                fontSize: 21.0))),
+                    onPressed: () {
+                      if (!checkPage('Content')) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ContentPage()),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(),
+                  child: OutlinedButton(
+                      style: ButtonStyle(
+                          backgroundColor: checkPage('VKS')
+                              ? MaterialStateProperty.all(Colors.purple[400])
+                              : MaterialStateProperty.all(Colors.transparent),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)))),
+                      child: Text(
+                        'ВКС',
+                        style: TextStyle(
+                            color: Colors.black,
+                            //fontWeight: FontWeight.bold,
+                            fontSize: 21.0),
+                      ),
                       onPressed: () {
-                        if (!checkPage('Content')) {
+                        if (!checkPage('VKS')) {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const ContentPage()),
+                                builder: (context) => const VKSPage()),
                           );
                         }
-                      },
-                    ),
-                  ),
-                  Text('Контент')
-                ],
+                      }),
+                ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: checkPage('VKS')
-                          ? Colors.grey[600]
-                          : Colors.grey[300],
-                    ),
-                    child: IconButton(
-                        icon: Icon(Icons.phone),
-                        onPressed: () {
-                          if (!checkPage('VKS')) {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const VKSPage()),
-                            );
-                          }
-                        }),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(
+
+                      /*border: Border(
+                          left: BorderSide(width: 1.0, color: Colors.blue)),
+                      borderRadius: BorderRadius.all(Radius.circular(45))*/
+                      ),
+                  child: OutlinedButton(
+                    style: ButtonStyle(
+                        backgroundColor: checkPage('TV')
+                            ? MaterialStateProperty.all(Colors.purple[400])
+                            : MaterialStateProperty.all(Colors.transparent),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(18.0)))),
+                    child: Center(
+                        child: Text('ТВ',
+                            style: TextStyle(
+                                color: Colors.black,
+                                //fontWeight: FontWeight.bold,
+                                fontSize: 21.0))),
+                    onPressed: () {
+                      if (!checkPage('TV')) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TVPage()),
+                        );
+                      }
+                    },
                   ),
-                  Text('ВКС')
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color:
-                          checkPage('TV') ? Colors.grey[600] : Colors.grey[300],
-                      border: Border(
-                          left: BorderSide(width: 4, color: Colors.blue)),
-                    ),
-                    child: IconButton(
-                      icon: Icon(Icons.tv),
-                      onPressed: () {
-                        if (!checkPage('TV')) {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TVPage()),
-                          );
-                        }
-                      },
-                    ),
-                  ),
-                  Text('ТВ')
-                ],
+                ),
               ),
             ],
           ),
@@ -321,10 +348,10 @@ class _zoomPanelState extends State<zoomPanel> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(60),
       child: Opacity(
-        opacity: 0.4,
+        opacity: 0.7,
         child: Container(
             decoration: BoxDecoration(
-                color: Colors.blueGrey[700],
+                color: Colors.blue[700],
                 border: Border.all(width: 1),
                 borderRadius: BorderRadius.circular(60)),
             //color: Colors.blue,
@@ -403,10 +430,10 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
   Widget build(BuildContext context) {
     return ClipOval(
       child: Opacity(
-        opacity: 0.4,
+        opacity: 0.7,
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.blueGrey[700],
+              color: Colors.blue[700],
               border: Border.all(width: 1),
               shape: BoxShape.circle),
           //color: Colors.blue,
@@ -612,9 +639,9 @@ class _commutationRowState extends State<commutationRow> {
             child: Text("Отправить запрос"),
             onPressed: () {
               String commutationRequest = widget.commutationAddress +
-                  "input=" +
+                  "param1=" +
                   commutationInput +
-                  "&output=" +
+                  "&param2=" +
                   commutationOutput;
               sendRequest(commutationRequest);
               setState(() {
@@ -770,7 +797,7 @@ Widget backgroundImage() => ClipRRect(
         child: Opacity(
           opacity: 0.8,
           child: Image.network(
-            'assets/pexels-1.jpg',
+            'assets/freepik2.jpg',
             fit: BoxFit.fill,
           ),
         ),

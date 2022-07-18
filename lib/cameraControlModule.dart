@@ -55,39 +55,51 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(
-                    icon: Icon(Icons.password, size: 50),
-                    onPressed: () {
-                      setState(() {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              onNumberChanged(String newNumberString) {
-                                setState(() {
-                                  _passwordNumber =
-                                      _passwordNumber + newNumberString;
-                                });
-                              }
+                Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      border: Border.all(width: 1)),
+                  child: IconButton(
+                      icon: Icon(Icons.password, size: 40),
+                      onPressed: () {
+                        setState(() {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                onNumberChanged(String newNumberString) {
+                                  setState(() {
+                                    _passwordNumber =
+                                        _passwordNumber + newNumberString;
+                                  });
+                                }
 
-                              onNumberDeleted() {
-                                setState(() {
-                                  _passwordNumber = _passwordNumber.substring(
-                                      0, _passwordNumber.length - 1);
-                                });
-                              }
+                                onNumberDeleted() {
+                                  setState(() {
+                                    _passwordNumber = _passwordNumber.substring(
+                                        0, _passwordNumber.length - 1);
+                                  });
+                                }
 
-                              return AlertDialog(
-                                  content: Column(children: [
-                                Text(_passwordNumber.toString()),
-                                KeyboardBlock(
-                                  numberTapCallback: onNumberChanged,
-                                  numberDeleteCallback: onNumberDeleted,
-                                )
-                              ]));
-                            });
-                      });
-                    }),
-                Align(alignment: Alignment(-0.5, 1.0), child: Text('Пароль'))
+                                return AlertDialog(
+                                    content: Column(children: [
+                                  Text(_passwordNumber.toString()),
+                                  KeyboardBlock(
+                                    numberTapCallback: onNumberChanged,
+                                    numberDeleteCallback: onNumberDeleted,
+                                  )
+                                ]));
+                              });
+                        });
+                      }),
+                ),
+                Align(
+                    alignment: Alignment(-0.5, 1.0),
+                    child: Text(
+                      'Пароль',
+                      style: TextStyle(fontSize: 12),
+                    ))
               ],
             ),
           ),
@@ -101,23 +113,29 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(
-                    icon: Icon(Icons.smart_screen, size: 50),
-                    onPressed: () {
-                      setState(() {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                content: CameraViews(),
-                              );
-                            });
-                      });
-                    }),
+                Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      border: Border.all(width: 1)),
+                  child: IconButton(
+                      icon: Icon(Icons.smart_screen, size: 40),
+                      onPressed: () {
+                        setState(() {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  content: CameraViews(),
+                                );
+                              });
+                        });
+                      }),
+                ),
                 Align(
                   alignment: Alignment(-0.7, 0.8),
-                  child: Text('''Пресеты
-Камеры'''),
+                  child: Text('''Пресеты''', style: TextStyle(fontSize: 12)),
                 )
               ],
             ),

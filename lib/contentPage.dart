@@ -25,6 +25,8 @@ class ContentPage extends StatefulWidget {
 
 class _ContentPageState extends State<ContentPage> {
   String fullRequestText = '';
+  Future<String> contentSwitchResponse = sendRequest(
+      "http://localhost:5000/Videocom/Test/Model/22/xxx?param1=4&param2=2");
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +36,13 @@ class _ContentPageState extends State<ContentPage> {
         title: Text('Контент'),
       ),
       body: Stack(children: [
-        //Center(child: backgroundImage()),
+        Positioned.fill(child: backgroundImage()),
         Center(
-            child: Row(
+            child: Text(
+          'Транслируется контент',
+          style: TextStyle(fontSize: 80),
+        )),
+        /*Row(
           children: [
             Text("Текст запроса:"),
             Container(
@@ -61,7 +67,7 @@ class _ContentPageState extends State<ContentPage> {
               },
             )
           ],
-        )),
+        )),*/
         BottomBar()
       ]),
     );

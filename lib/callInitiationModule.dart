@@ -7,6 +7,7 @@ import 'package:joystick/joystick.dart';
 import 'vksPage.dart';
 import 'main.dart';
 import 'my_functions/hardwareFunctions.dart';
+import 'my_functions/internalFunctions.dart';
 import 'contentPage.dart';
 
 class CallInitiationModule extends StatefulWidget {
@@ -25,20 +26,45 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
     return Stack(
       children: [
         Align(
+          alignment: Alignment(-0.1, -0.4),
+          child: OutlinedButton(
+            style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all(Size(120, 50)),
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(9.0)))),
+            child: Text(
+              'Контент',
+              style: TextStyle(color: Colors.black, fontSize: 21),
+            ),
+            onPressed: () {
+              if (!checkPage('Content')) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ContentPage()),
+                );
+              }
+            },
+          ),
+        ),
+        Align(
           alignment: Alignment(-0.2, -1.0),
           child: SizedBox(
-              height: 75,
-              width: 225,
+              height: 50,
+              width: 275,
               child: Container(
                 child: Center(
                     child: Text(
                   dialNumber,
-                  style: TextStyle(fontSize: 32),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 )),
                 padding: EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
-                  border:
-                      Border(bottom: BorderSide(width: 5, color: Colors.black)),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                      width:
+                          2) /*Border(bottom: BorderSide(width: 5, color: Colors.black))*/,
                 ),
               )),
         ),
