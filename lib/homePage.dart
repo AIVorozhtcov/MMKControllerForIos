@@ -7,7 +7,10 @@ import 'package:joystick/joystick.dart';
 
 import 'my_libraries/globals.dart' as globals;
 
+import 'my_functions/hardwareFunctions.dart';
+
 import 'main.dart';
+import 'landingPage.dart';
 import 'vksPage.dart';
 import 'tvPage.dart';
 import 'contentPage.dart';
@@ -46,6 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Управление ММК'),
       ),
       body: Stack(children: [
+        Positioned.fill(child: backgroundImage()),
+
+        Align(alignment: Alignment(-1.0, 0.9), child: VolumeSlider()),
         Align(
           alignment: Alignment(0.0, 0.2),
           child: Row(
@@ -121,7 +127,69 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        BottomBar()
+        Align(
+          alignment: Alignment(0.9, 0.9),
+          child: IconButton(
+              icon: Icon(
+                Icons.exit_to_app,
+                size: 40,
+              ),
+              onPressed: () {
+                setState(() {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          content: SizedBox(
+                            height: 100,
+                            width: 150,
+                            child: Stack(
+                              children: [
+                                Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Text('Выключить панель?')),
+                                Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: ClipOval(
+                                    child: Container(
+                                      color: Colors.red,
+                                      child: IconButton(
+                                          icon: Icon(Icons.cancel),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          }),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: ClipOval(
+                                    child: Container(
+                                      color: Colors.green,
+                                      child: IconButton(
+                                          icon: Icon(Icons.check),
+                                          onPressed: () {
+                                            sendRequest(
+                                                "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
+                                            Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const landingPage()),
+                                            );
+                                          }),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      });
+                });
+              }),
+        )
+        //BottomBar()
       ]),
 
       /*body: IndexedStack(

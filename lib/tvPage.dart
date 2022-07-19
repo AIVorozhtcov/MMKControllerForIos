@@ -12,6 +12,7 @@ import 'my_libraries/globals.dart' as globals;
 import 'main.dart';
 import 'vksPage.dart';
 import 'homePage.dart';
+import 'my_functions/hardwareFunctions.dart';
 import 'commonWidgets.dart';
 
 class TVPage extends StatefulWidget {
@@ -24,6 +25,9 @@ class TVPage extends StatefulWidget {
 }
 
 class _TVPageState extends State<TVPage> {
+  Future<String> contentSwitchResponse = sendRequest(
+      "http://localhost:5000/Videocom/Test/Model/22/VideoSwitch?param1=2&param2=2");
+
   @override
   Widget build(BuildContext context) {
     globals.currentPage = 'TV';
@@ -32,7 +36,43 @@ class _TVPageState extends State<TVPage> {
       appBar: AppBar(
         title: Text('ТВ'),
       ),
-      body: Container(
+      body: Stack(children: [
+        Positioned.fill(child: backgroundImage()),
+        Center(
+            child: Text(
+          'Транслируется ТВ',
+          style: TextStyle(fontSize: 80),
+        )),
+        /*Row(
+          children: [
+            Text("Текст запроса:"),
+            Container(
+              width: 500,
+              child: TextField(
+                onChanged: (String outputValue) {
+                  fullRequestText = outputValue;
+                },
+              ),
+            ),
+            OutlinedButton(
+              child: Text("Отправить запрос"),
+              onPressed: () {
+                sendRequest(fullRequestText);
+                setState(() {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(content: Text(fullRequestText));
+                      });
+                });
+              },
+            )
+          ],
+        )),*/
+        BottomBar()
+      ]),
+
+      /*Container(
         height: MediaQuery.of(context).size.height,
         child: Container(
           child: Stack(
@@ -102,6 +142,7 @@ class _TVPageState extends State<TVPage> {
           ),
         ),
       ),
+    */
     );
   }
 }

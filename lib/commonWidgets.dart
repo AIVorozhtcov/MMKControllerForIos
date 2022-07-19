@@ -103,7 +103,6 @@ class VolumeSlider extends StatefulWidget {
 }
 
 class _VolumeSliderState extends State<VolumeSlider> {
-  double SliderValue = 50;
   bool isMute = false;
   @override
   Widget build(BuildContext context) {
@@ -126,13 +125,21 @@ class _VolumeSliderState extends State<VolumeSlider> {
       SizedBox(
         height: 20,
         child: Slider(
-            value: SliderValue,
-            max: 100,
-            onChanged: (double value) {
-              setState(() {
-                SliderValue = value;
-              });
-            }),
+          value: globals.volumeValue,
+          max: 100,
+          onChanged: (double value) {
+            setState(() {
+              globals.volumeValue = value;
+            });
+          },
+          onChangeEnd: (double value) {
+            globals.volumeValue = value.roundToDouble();
+            String volumeChangeRequest =
+                "http://localhost:5000/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
+                    globals.volumeValue.toString();
+            sendRequest(volumeChangeRequest);
+          },
+        ),
       ),
     ]);
   }
@@ -288,7 +295,7 @@ class _BottomBarState extends State<BottomBar> {
                               children: [
                                 Align(
                                     alignment: Alignment.topCenter,
-                                    child: Text('Закрыть контроллер?')),
+                                    child: Text('Выключить панель?')),
                                 Align(
                                   alignment: Alignment.bottomLeft,
                                   child: ClipOval(
@@ -310,6 +317,8 @@ class _BottomBarState extends State<BottomBar> {
                                       child: IconButton(
                                           icon: Icon(Icons.check),
                                           onPressed: () {
+                                            sendRequest(
+                                                "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
                                             Navigator.pushReplacement(
                                               context,
                                               MaterialPageRoute(
@@ -797,7 +806,7 @@ Widget backgroundImage() => ClipRRect(
         child: Opacity(
           opacity: 0.8,
           child: Image.network(
-            'assets/freepik2.jpg',
+            'assets/images/freepik2.jpg',
             fit: BoxFit.fill,
           ),
         ),
@@ -811,7 +820,7 @@ Widget stepLogo() => ClipRRect(
         child: Opacity(
           opacity: 0.8,
           child: Image.network(
-            'assets/StepLogo.jpg',
+            'assets/images/StepLogo.jpg',
             fit: BoxFit.fitHeight,
           ),
         ),

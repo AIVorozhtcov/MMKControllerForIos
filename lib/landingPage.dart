@@ -7,6 +7,7 @@ import 'package:joystick/joystick.dart';
 import 'my_libraries/globals.dart' as globals;
 
 import 'main.dart';
+import 'my_functions/hardwareFunctions.dart';
 import 'homePage.dart';
 
 class landingPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _landingPageState extends State<landingPage> {
     return Scaffold(
         body: Stack(
       children: [
+        Positioned.fill(child: backgroundImage()),
         Center(child: stepLogo()),
         Center(
           child: OutlinedButton(
@@ -38,6 +40,8 @@ class _landingPageState extends State<landingPage> {
                     fontSize: 30),
               ),
               onPressed: () {
+                sendRequest(
+                    "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyHomePage()),

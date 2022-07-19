@@ -21,6 +21,8 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  //Future<String> initVolumeResponse = sendRequest("http://localhost:5000/Videocom/Test/Model/22/AudioOut?param1=1&param2=50");
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

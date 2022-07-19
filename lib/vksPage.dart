@@ -39,7 +39,7 @@ class _VKSPageState extends State<VKSPage> {
   }
 
   Future<String> contentSwitchResponse = sendRequest(
-      "http://localhost:5000/Videocom/Test/Model/22/xxx?param1=3&param2=2");
+      "http://localhost:5000/Videocom/Test/Model/22/VideoSwitch?param1=3&param2=2");
 
   @override
   Widget build(BuildContext context) {
