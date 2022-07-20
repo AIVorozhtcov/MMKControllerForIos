@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:multimedia_demo/commonWidgets.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
-import 'package:joystick/joystick.dart';
 
 import 'my_libraries/globals.dart' as globals;
 
+import 'loadingPage.dart';
 import 'main.dart';
 import 'my_functions/hardwareFunctions.dart';
 import 'homePage.dart';
@@ -41,10 +41,10 @@ class _landingPageState extends State<landingPage> {
               ),
               onPressed: () {
                 sendRequest(
-                    "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
+                    "http://10.176.252.2:8080/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  MaterialPageRoute(builder: (context) => const loadingPage()),
                 );
               }),
         ),

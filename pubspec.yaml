@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   numeric_keyboard: ^1.1.0
   http: ^0.13.4
-  joystick: ^1.1.0
+  flutter_splash_screen: ^1.0.0
 
 assets:
  - assets/images/

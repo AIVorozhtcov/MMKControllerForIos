@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:multimedia_demo/tvPage.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
-import 'package:joystick/joystick.dart';
 
 import 'my_libraries/globals.dart' as globals;
 
 import 'my_functions/hardwareFunctions.dart';
 import 'my_functions/internalFunctions.dart';
 
+import 'loadingPage.dart';
 import 'main.dart';
 import 'vksPage.dart';
 import 'landingPage.dart';
@@ -135,7 +135,7 @@ class _VolumeSliderState extends State<VolumeSlider> {
           onChangeEnd: (double value) {
             globals.volumeValue = value.roundToDouble();
             String volumeChangeRequest =
-                "http://localhost:5000/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
+                "http://10.176.252.2:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
                     globals.volumeValue.toString();
             sendRequest(volumeChangeRequest);
           },
@@ -318,12 +318,12 @@ class _BottomBarState extends State<BottomBar> {
                                           icon: Icon(Icons.check),
                                           onPressed: () {
                                             sendRequest(
-                                                "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
+                                                "http://10.176.252.2:8080/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
                                             Navigator.pushReplacement(
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      const landingPage()),
+                                                      const loadingPage()),
                                             );
                                           }),
                                     ),

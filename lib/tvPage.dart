@@ -5,7 +5,6 @@ import 'package:multimedia_demo/contentPage.dart';
 import 'package:multimedia_demo/landingPage.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
-import 'package:joystick/joystick.dart';
 
 import 'my_libraries/globals.dart' as globals;
 
@@ -26,7 +25,7 @@ class TVPage extends StatefulWidget {
 
 class _TVPageState extends State<TVPage> {
   Future<String> contentSwitchResponse = sendRequest(
-      "http://localhost:5000/Videocom/Test/Model/22/VideoSwitch?param1=2&param2=2");
+      "http://10.176.252.2:8080/Videocom/Test/Model/22/VideoSwitch?param1=2&param2=2");
 
   @override
   Widget build(BuildContext context) {

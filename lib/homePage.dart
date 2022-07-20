@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
-import 'package:joystick/joystick.dart';
 
 import 'my_libraries/globals.dart' as globals;
 
 import 'my_functions/hardwareFunctions.dart';
 
+import 'loadingPage.dart';
 import 'main.dart';
 import 'landingPage.dart';
 import 'vksPage.dart';
@@ -170,12 +170,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                           icon: Icon(Icons.check),
                                           onPressed: () {
                                             sendRequest(
-                                                "http://127.0.0.1:5000/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
+                                                "http://10.176.252.2:8080/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
                                             Navigator.pushReplacement(
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      const landingPage()),
+                                                      const loadingPage()),
                                             );
                                           }),
                                     ),

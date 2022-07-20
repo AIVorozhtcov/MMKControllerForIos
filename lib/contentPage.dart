@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
-import 'package:joystick/joystick.dart';
 
 import 'my_libraries/globals.dart' as globals;
 
@@ -26,7 +25,7 @@ class ContentPage extends StatefulWidget {
 class _ContentPageState extends State<ContentPage> {
   String fullRequestText = '';
   Future<String> contentSwitchResponse = sendRequest(
-      "http://localhost:5000/Videocom/Test/Model/22/VideoSwitch?param1=4&param2=2");
+      "http://10.176.252.2:8080/Videocom/Test/Model/22/VideoSwitch?param1=4&param2=2");
 
   @override
   Widget build(BuildContext context) {
