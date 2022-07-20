@@ -25,7 +25,7 @@ class TVPage extends StatefulWidget {
 
 class _TVPageState extends State<TVPage> {
   Future<String> contentSwitchResponse = sendRequest(
-      "http://10.176.252.2:8080/Videocom/Test/Model/22/VideoSwitch?param1=2&param2=2");
+      "http://10.176.252.105:8080/Videocom/Test/Model/22/VideoSwitch?param1=2&param2=2");
 
   @override
   Widget build(BuildContext context) {

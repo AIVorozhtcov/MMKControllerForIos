@@ -41,7 +41,7 @@ class _landingPageState extends State<landingPage> {
               ),
               onPressed: () {
                 sendRequest(
-                    "http://10.176.252.2:8080/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
+                    "http://10.176.252.105:8080/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const loadingPage()),

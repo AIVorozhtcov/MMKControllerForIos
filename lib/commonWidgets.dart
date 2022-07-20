@@ -135,7 +135,7 @@ class _VolumeSliderState extends State<VolumeSlider> {
           onChangeEnd: (double value) {
             globals.volumeValue = value.roundToDouble();
             String volumeChangeRequest =
-                "http://10.176.252.2:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
+                "http://10.176.252.105:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
                     globals.volumeValue.toString();
             sendRequest(volumeChangeRequest);
           },
@@ -318,7 +318,7 @@ class _BottomBarState extends State<BottomBar> {
                                           icon: Icon(Icons.check),
                                           onPressed: () {
                                             sendRequest(
-                                                "http://10.176.252.2:8080/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
+                                                "http://10.176.252.105:8080/Api_TV/TVpanel/1/cmd/Power?param1=Off&param2=0");
                                             Navigator.pushReplacement(
                                               context,
                                               MaterialPageRoute(
