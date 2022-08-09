@@ -83,7 +83,7 @@ class _KeyboardBlockState extends State<KeyboardBlock> {
               },
               leftIcon: Icon(
                 Icons.circle,
-                size: 10,
+                size: 2 * globals.SizeConfig.blockSizeVertical,
                 color: Colors.black,
               ),
               mainAxisAlignment: MainAxisAlignment.spaceEvenly),
@@ -109,8 +109,10 @@ class _VolumeSliderState extends State<VolumeSlider> {
     return Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
       IconButton(
           icon: isMute
-              ? Icon(Icons.volume_off, size: 40)
-              : Icon(Icons.volume_up_rounded, size: 40),
+              ? Icon(Icons.volume_off,
+                  size: 7 * globals.SizeConfig.blockSizeVertical)
+              : Icon(Icons.volume_up_rounded,
+                  size: 7 * globals.SizeConfig.blockSizeVertical),
           onPressed: () {
             if (isMute) {
               setState(() {
@@ -123,7 +125,7 @@ class _VolumeSliderState extends State<VolumeSlider> {
             }
           }),
       SizedBox(
-        height: 20,
+        height: 3.5 * globals.SizeConfig.blockSizeVertical,
         child: Slider(
           value: globals.volumeValue,
           max: 100,
@@ -168,8 +170,8 @@ class _BottomBarState extends State<BottomBar> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
-                  height: 50,
-                  width: 120,
+                  height: 8.5 * globals.SizeConfig.blockSizeVertical,
+                  width: 10 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(),
                   child: OutlinedButton(
                     style: ButtonStyle(
@@ -186,7 +188,8 @@ class _BottomBarState extends State<BottomBar> {
                             style: TextStyle(
                                 color: Colors.black,
                                 //fontWeight: FontWeight.bold,
-                                fontSize: 21.0))),
+                                fontSize: 3.5 *
+                                    globals.SizeConfig.blockSizeVertical))),
                     onPressed: () {
                       if (!checkPage('Content')) {
                         Navigator.pushReplacement(
@@ -202,8 +205,8 @@ class _BottomBarState extends State<BottomBar> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
-                  height: 50,
-                  width: 120,
+                  height: 8.5 * globals.SizeConfig.blockSizeVertical,
+                  width: 10 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(),
                   child: OutlinedButton(
                       style: ButtonStyle(
@@ -220,7 +223,8 @@ class _BottomBarState extends State<BottomBar> {
                         style: TextStyle(
                             color: Colors.black,
                             //fontWeight: FontWeight.bold,
-                            fontSize: 21.0),
+                            fontSize:
+                                3.5 * globals.SizeConfig.blockSizeVertical),
                       ),
                       onPressed: () {
                         if (!checkPage('VKS')) {
@@ -236,8 +240,8 @@ class _BottomBarState extends State<BottomBar> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
-                  height: 50,
-                  width: 120,
+                  height: 8.5 * globals.SizeConfig.blockSizeVertical,
+                  width: 10 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(
 
                       /*border: Border(
@@ -259,7 +263,8 @@ class _BottomBarState extends State<BottomBar> {
                             style: TextStyle(
                                 color: Colors.black,
                                 //fontWeight: FontWeight.bold,
-                                fontSize: 21.0))),
+                                fontSize: 3.5 *
+                                    globals.SizeConfig.blockSizeVertical))),
                     onPressed: () {
                       if (!checkPage('TV')) {
                         Navigator.pushReplacement(
@@ -280,7 +285,7 @@ class _BottomBarState extends State<BottomBar> {
           child: IconButton(
               icon: Icon(
                 Icons.exit_to_app,
-                size: 40,
+                size: 7 * globals.SizeConfig.blockSizeVertical,
               ),
               onPressed: () {
                 setState(() {
@@ -289,8 +294,9 @@ class _BottomBarState extends State<BottomBar> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           content: SizedBox(
-                            height: 100,
-                            width: 150,
+                            height: 16.5 * globals.SizeConfig.blockSizeVertical,
+                            width:
+                                12.5 * globals.SizeConfig.blockSizeHorizontal,
                             child: Stack(
                               children: [
                                 Align(
@@ -369,7 +375,8 @@ class _zoomPanelState extends State<zoomPanel> {
                 alignment: Alignment(0.0, -0.8),
                 child: InkWell(
                     child: Ink(
-                      child: Icon(Icons.zoom_in, size: 40),
+                      child: Icon(Icons.zoom_in,
+                          size: 7 * globals.SizeConfig.blockSizeVertical),
                     ),
                     onTapDown: (TapDownDetails) {
                       final requestResponse = zoomCamera("Zoom_plus");
@@ -393,13 +400,15 @@ class _zoomPanelState extends State<zoomPanel> {
               Center(
                   child: Text(
                 "ZOOM",
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(
+                    fontSize: 2 * globals.SizeConfig.blockSizeVertical),
               )),
               Align(
                 alignment: Alignment(0.0, 0.8),
                 child: InkWell(
                     child: Ink(
-                      child: Icon(Icons.zoom_out, size: 40),
+                      child: Icon(Icons.zoom_out,
+                          size: 7 * globals.SizeConfig.blockSizeVertical),
                     ),
                     onTapDown: (TapDownDetails) {
                       final requestResponse = zoomCamera("Zoom_minus");
@@ -455,8 +464,9 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
                     child: Icon(Icons.keyboard_arrow_up,
-                        size:
-                            40 /*Icons.arrow_drop_up  Icons.arrow_circle_up_outlined*/),
+                        size: 7 *
+                            globals.SizeConfig
+                                .blockSizeVertical /*Icons.arrow_drop_up  Icons.arrow_circle_up_outlined*/),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Up");
@@ -482,7 +492,8 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   enableFeedback: false,
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
-                    child: Icon(Icons.keyboard_arrow_down, size: 40),
+                    child: Icon(Icons.keyboard_arrow_down,
+                        size: 7 * globals.SizeConfig.blockSizeVertical),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Down");
@@ -508,7 +519,8 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   enableFeedback: false,
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
-                    child: Icon(Icons.keyboard_arrow_left, size: 40),
+                    child: Icon(Icons.keyboard_arrow_left,
+                        size: 7 * globals.SizeConfig.blockSizeVertical),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Left");
@@ -534,7 +546,8 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   enableFeedback: false,
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
-                    child: Icon(Icons.keyboard_arrow_right, size: 40),
+                    child: Icon(Icons.keyboard_arrow_right,
+                        size: 7 * globals.SizeConfig.blockSizeVertical),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Right");
@@ -556,8 +569,8 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
             Center(
               child: ClipOval(
                 child: Container(
-                  height: 50,
-                  width: 50,
+                  height: 8 * globals.SizeConfig.blockSizeVertical,
+                  width: 4 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(shape: BoxShape.circle),
                   child: OutlinedButton(
                       style: ButtonStyle(
@@ -565,7 +578,9 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                               MaterialStateProperty.all(Colors.grey)),
                       child: Text(
                         'OK',
-                        style: TextStyle(color: Colors.black, fontSize: 13),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 2 * globals.SizeConfig.blockSizeVertical),
                       ),
                       onPressed: () async {
                         final numberInfo = await numberRequest(dialNumber);
@@ -621,14 +636,14 @@ class _commutationRowState extends State<commutationRow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      width: 1000,
+      height: 16.5 * globals.SizeConfig.blockSizeVertical,
+      width: 83 * globals.SizeConfig.blockSizeHorizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text("INPUT:"),
           Container(
-            width: 150,
+            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
             child: TextField(
               onChanged: (String inputValue) {
                 commutationInput = inputValue;
@@ -637,7 +652,7 @@ class _commutationRowState extends State<commutationRow> {
           ),
           Text("OUTPUT:"),
           Container(
-            width: 150,
+            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
             child: TextField(
               onChanged: (String outputValue) {
                 commutationOutput = outputValue;
@@ -686,14 +701,14 @@ class _volumeCommutationRowState extends State<volumeCommutationRow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      width: 1000,
+      height: 16.5 * globals.SizeConfig.blockSizeVertical,
+      width: 83 * globals.SizeConfig.blockSizeHorizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text("INPUT:"),
           Container(
-            width: 150,
+            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
             child: TextField(
               onChanged: (String inputValue) {
                 commutationInput = inputValue;
@@ -701,7 +716,7 @@ class _volumeCommutationRowState extends State<volumeCommutationRow> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 3.5 * globals.SizeConfig.blockSizeVertical,
             child: Slider(
                 value: volumeCommutationValue,
                 min: -12,
@@ -753,14 +768,14 @@ class _tvControlRowState extends State<tvControlRow> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      width: 1000,
+      height: 16.5 * globals.SizeConfig.blockSizeVertical,
+      width: 83 * globals.SizeConfig.blockSizeHorizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text("param1:"),
           Container(
-            width: 150,
+            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
             child: TextField(
               onChanged: (String inputValue) {
                 commutationInput = inputValue;
@@ -769,7 +784,7 @@ class _tvControlRowState extends State<tvControlRow> {
           ),
           Text("param2:"),
           Container(
-            width: 150,
+            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
             child: TextField(
               onChanged: (String outputValue) {
                 commutationOutput = outputValue;

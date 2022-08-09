@@ -22,7 +22,7 @@ class VKSPage extends StatefulWidget {
   State<VKSPage> createState() => _VKSPageState();
 }
 
-String dialNumber = '';
+String dialNumber = globals.SizeConfig.screenHeight.toString();
 
 class _VKSPageState extends State<VKSPage> {
   onNumberChanged(String newNumberString) {
@@ -42,7 +42,10 @@ class _VKSPageState extends State<VKSPage> {
 
   @override
   Widget build(BuildContext context) {
+    globals.SizeConfig().init(context);
     globals.currentPage = 'VKS';
+
+    String dialNumber = globals.SizeConfig.screenHeight.toString();
 
     return Scaffold(
         appBar: AppBar(
@@ -59,11 +62,11 @@ class _VKSPageState extends State<VKSPage> {
             children: [
               Positioned.fill(child: backgroundImage()),
               Positioned(
-                top: 150,
-                left: 20,
+                top: 25 * globals.SizeConfig.blockSizeVertical,
+                left: 2 * globals.SizeConfig.blockSizeHorizontal,
                 child: SizedBox(
-                  height: 300,
-                  width: 400,
+                  height: 50 * globals.SizeConfig.blockSizeVertical,
+                  width: 34 * globals.SizeConfig.blockSizeHorizontal,
                   child: Opacity(
                     opacity: 0.7,
                     child: Container(
@@ -80,15 +83,19 @@ class _VKSPageState extends State<VKSPage> {
                 ),
               ),
               Positioned(
-                left: 500,
-                top: 50,
+                left: 42 * globals.SizeConfig.blockSizeHorizontal,
+                top: 9 * globals.SizeConfig.blockSizeVertical,
                 child: SizedBox(
-                    width: 300, height: 600, child: CallInitiationModule()),
+                    width: 25 * globals.SizeConfig.blockSizeHorizontal,
+                    height: 100 * globals.SizeConfig.blockSizeVertical,
+                    child: CallInitiationModule()),
               ),
               Align(
                 alignment: Alignment.topRight,
                 child: SizedBox(
-                    width: 400, height: 600, child: CameraControlBlock()),
+                    width: 34 * globals.SizeConfig.blockSizeHorizontal,
+                    height: 100 * globals.SizeConfig.blockSizeVertical,
+                    child: CameraControlBlock()),
               ),
               BottomBar()
             ],

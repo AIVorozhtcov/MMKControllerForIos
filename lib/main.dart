@@ -12,6 +12,7 @@ import 'vksPage.dart';
 import 'homePage.dart';
 import 'contentPage.dart';
 import 'commonWidgets.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,8 +26,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //globals.SizeConfig().init(context);
     return MaterialApp(
       title: 'MMC Demo',
+      /*builder: (context, widget) => ResponsiveWrapper.builder(
+        ClampingScrollWrapper.builder(context, widget!),
+        defaultScale: true,
+        //breakpoints: const [
+        //ResponsiveBreakpoint.autoScale(1, name: 'ONESIZE'),
+        //ResponsiveBreakpoint.autoScale(10000, name: 'TWOSIZE'),
+        //],
+      ),*/
       theme: ThemeData(
         // This is the theme of your application.
         //

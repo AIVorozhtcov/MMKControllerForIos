@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multimedia_demo/my_libraries/globals.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
 
@@ -41,27 +42,33 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
         Align(
             alignment: Alignment(-0.5, 0.0),
             child: SizedBox(
-                height: 160, width: 160, child: cameraControlCircle())),
+                height: 26.5 * SizeConfig.blockSizeVertical,
+                width: 13.3 * SizeConfig.blockSizeHorizontal,
+                child: cameraControlCircle())),
         Align(
             alignment: Alignment(0.7, 0.0),
-            child: SizedBox(height: 160, width: 48, child: zoomPanel())),
+            child: SizedBox(
+                height: 26.5 * SizeConfig.blockSizeVertical,
+                width: 4 * SizeConfig.blockSizeHorizontal,
+                child: zoomPanel())),
         Align(
           alignment: Alignment(-0.6, 0.67),
           child: SizedBox(
-            width: 90,
-            height: 90,
+            width: 7.5 * SizeConfig.blockSizeHorizontal,
+            height: 15 * SizeConfig.blockSizeVertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
+                  height: 10 * SizeConfig.blockSizeVertical,
+                  width: 5 * SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       border: Border.all(width: 1)),
                   child: IconButton(
-                      icon: Icon(Icons.password, size: 40),
+                      icon: Icon(Icons.password,
+                          size: 7 * SizeConfig.blockSizeVertical),
                       onPressed: () {
                         setState(() {
                           showDialog(
@@ -97,7 +104,8 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
                     alignment: Alignment(-0.5, 1.0),
                     child: Text(
                       'Пароль',
-                      style: TextStyle(fontSize: 12),
+                      style:
+                          TextStyle(fontSize: 2 * SizeConfig.blockSizeVertical),
                     ))
               ],
             ),
@@ -106,20 +114,21 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
         Align(
           alignment: Alignment(0.1, 0.7),
           child: SizedBox(
-            width: 90,
-            height: 90,
+            width: 7.5 * SizeConfig.blockSizeHorizontal,
+            height: 15 * SizeConfig.blockSizeVertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  height: 60,
-                  width: 60,
+                  height: 10 * SizeConfig.blockSizeVertical,
+                  width: 5 * SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       border: Border.all(width: 1)),
                   child: IconButton(
-                      icon: Icon(Icons.smart_screen, size: 40),
+                      icon: Icon(Icons.smart_screen,
+                          size: 7 * SizeConfig.blockSizeVertical),
                       onPressed: () {
                         setState(() {
                           showDialog(
@@ -134,7 +143,9 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
                 ),
                 Align(
                   alignment: Alignment(-0.7, 0.8),
-                  child: Text('''Пресеты''', style: TextStyle(fontSize: 12)),
+                  child: Text('''Пресеты''',
+                      style: TextStyle(
+                          fontSize: 2 * SizeConfig.blockSizeVertical)),
                 )
               ],
             ),

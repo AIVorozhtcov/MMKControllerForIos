@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:multimedia_demo/my_libraries/globals.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:http/http.dart' as http;
 import 'vksPage.dart';
@@ -28,14 +29,18 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
           alignment: Alignment(-0.1, -0.4),
           child: OutlinedButton(
             style: ButtonStyle(
-                fixedSize: MaterialStateProperty.all(Size(120, 50)),
+                fixedSize: MaterialStateProperty.all(Size(
+                    10 * SizeConfig.blockSizeHorizontal,
+                    8 * SizeConfig.blockSizeVertical)),
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(9.0)))),
             child: Text(
               'Контент',
-              style: TextStyle(color: Colors.black, fontSize: 21),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 3.5 * SizeConfig.blockSizeVertical),
             ),
             onPressed: () {
               if (!checkPage('Content')) {
@@ -50,13 +55,15 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
         Align(
           alignment: Alignment(-0.2, -1.0),
           child: SizedBox(
-              height: 50,
-              width: 275,
+              height: 8 * SizeConfig.blockSizeVertical,
+              width: 22.9 * SizeConfig.blockSizeHorizontal,
               child: Container(
                 child: Center(
                     child: Text(
                   dialNumber,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 4 * SizeConfig.blockSizeVertical,
+                      fontWeight: FontWeight.bold),
                 )),
                 padding: EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
@@ -90,7 +97,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 child: Icon(
                   Icons.call,
                   color: Colors.white,
-                  size: 35.0,
+                  size: 6 * SizeConfig.blockSizeVertical,
                 ),
                 padding: EdgeInsets.all(15.0),
                 shape: CircleBorder(),
@@ -129,8 +136,8 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                         builder: (BuildContext context) {
                           return AlertDialog(
                             content: SizedBox(
-                              height: 100,
-                              width: 150,
+                              height: 16.5 * SizeConfig.blockSizeVertical,
+                              width: 12.5 * SizeConfig.blockSizeHorizontal,
                               child: Stack(
                                 children: [
                                   Align(
@@ -200,7 +207,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 child: Icon(
                   Icons.call_end,
                   color: Colors.white,
-                  size: 35.0,
+                  size: 6 * SizeConfig.blockSizeVertical,
                 ),
                 padding: EdgeInsets.all(15.0),
                 shape: CircleBorder(),

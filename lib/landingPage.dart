@@ -22,6 +22,7 @@ class landingPage extends StatefulWidget {
 class _landingPageState extends State<landingPage> {
   @override
   Widget build(BuildContext context) {
+    globals.SizeConfig().init(context);
     globals.currentPage = "Landing";
     return Scaffold(
         body: Stack(
