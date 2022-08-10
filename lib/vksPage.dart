@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'my_libraries/globals.dart' as globals;
 
 import 'main.dart';
+import 'Numpad.dart';
 import 'contentPage.dart';
 import 'commonWidgets.dart';
 import 'my_functions/hardwareFunctions.dart';
@@ -22,12 +23,14 @@ class VKSPage extends StatefulWidget {
   State<VKSPage> createState() => _VKSPageState();
 }
 
-String dialNumber = globals.SizeConfig.screenHeight.toString();
+//String dialNumber = globals.SizeConfig.screenHeight.toString();
+String dialNumber = '';
 
 class _VKSPageState extends State<VKSPage> {
   onNumberChanged(String newNumberString) {
     setState(() {
-      dialNumber = dialNumber + newNumberString;
+      dialNumber = newNumberString;
+      //dialNumber = dialNumber + newNumberString;
     });
   }
 
@@ -66,7 +69,7 @@ class _VKSPageState extends State<VKSPage> {
                 left: 2 * globals.SizeConfig.blockSizeHorizontal,
                 child: SizedBox(
                   height: 50 * globals.SizeConfig.blockSizeVertical,
-                  width: 34 * globals.SizeConfig.blockSizeHorizontal,
+                  width: 30 * globals.SizeConfig.blockSizeHorizontal,
                   child: Opacity(
                     opacity: 0.7,
                     child: Container(
@@ -74,16 +77,20 @@ class _VKSPageState extends State<VKSPage> {
                           color: Colors.blue[700],
                           borderRadius: BorderRadius.all(Radius.circular(45)),
                           border: Border.all(width: 1)),
-                      child: KeyboardBlock(
+                      child: Numpad(
+                          length: 20,
+                          onChange:
+                              onNumberChanged) /*KeyboardBlock(
                         numberTapCallback: onNumberChanged,
                         numberDeleteCallback: onNumberDeleted,
-                      ),
+                      )*/
+                      ,
                     ),
                   ),
                 ),
               ),
               Positioned(
-                left: 42 * globals.SizeConfig.blockSizeHorizontal,
+                left: 40 * globals.SizeConfig.blockSizeHorizontal,
                 top: 9 * globals.SizeConfig.blockSizeVertical,
                 child: SizedBox(
                     width: 25 * globals.SizeConfig.blockSizeHorizontal,

@@ -29,25 +29,34 @@ class _landingPageState extends State<landingPage> {
       children: [
         Positioned.fill(child: backgroundImage()),
         Center(child: stepLogo()),
-        Center(
-          child: OutlinedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
-              child: Text(
-                "Начать",
-                style: TextStyle(
-                    backgroundColor: Colors.blue,
-                    color: Colors.black,
-                    fontSize: 30),
-              ),
-              onPressed: () {
-                sendRequest(
-                    "http://10.176.252.105:8080/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const loadingPage()),
-                );
-              }),
+        Align(
+          alignment: Alignment(0.0, 0.45),
+          child: SizedBox(
+            height: 12.5 * globals.SizeConfig.blockSizeVertical,
+            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
+            child: OutlinedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0)))),
+                child: Text(
+                  "Начать",
+                  style: TextStyle(
+                      backgroundColor: Colors.blue,
+                      color: Colors.black,
+                      fontSize: 30),
+                ),
+                onPressed: () {
+                  sendRequest(
+                      "http://10.176.252.105:8080/Api_TV/TVpanel/1/cmd/Power?param1=On&param2=0");
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const loadingPage()),
+                  );
+                }),
+          ),
         ),
       ],
     ));

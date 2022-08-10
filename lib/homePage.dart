@@ -66,7 +66,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: OutlinedButton(
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.blue)),
+                              MaterialStateProperty.all(Colors.blue),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)))),
                       child: Text(
                         "Контент",
                         style: TextStyle(color: Colors.black, fontSize: 30),
@@ -88,7 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: OutlinedButton(
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.blue)),
+                              MaterialStateProperty.all(Colors.blue),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)))),
                       child: Text(
                         "ВКС",
                         style: TextStyle(color: Colors.black, fontSize: 30),
@@ -110,7 +120,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: OutlinedButton(
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.blue)),
+                              MaterialStateProperty.all(Colors.blue),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)))),
                       child: Text("ТВ",
                           style: TextStyle(color: Colors.black, fontSize: 30)),
                       onPressed: () {
