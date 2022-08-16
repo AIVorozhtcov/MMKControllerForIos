@@ -23,8 +23,8 @@ class VKSPage extends StatefulWidget {
   State<VKSPage> createState() => _VKSPageState();
 }
 
-//String dialNumber = globals.SizeConfig.screenHeight.toString();
-String dialNumber = '';
+String dialNumber = globals.SizeConfig.screenHeight.toString();
+//String dialNumber = '';
 
 class _VKSPageState extends State<VKSPage> {
   onNumberChanged(String newNumberString) {
@@ -69,7 +69,7 @@ class _VKSPageState extends State<VKSPage> {
                 left: 2 * globals.SizeConfig.blockSizeHorizontal,
                 child: SizedBox(
                   height: 50 * globals.SizeConfig.blockSizeVertical,
-                  width: 30 * globals.SizeConfig.blockSizeHorizontal,
+                  width: 32 * globals.SizeConfig.blockSizeHorizontal,
                   child: Opacity(
                     opacity: 0.7,
                     child: Container(
@@ -90,15 +90,16 @@ class _VKSPageState extends State<VKSPage> {
                 ),
               ),
               Positioned(
-                left: 40 * globals.SizeConfig.blockSizeHorizontal,
+                left: 36 * globals.SizeConfig.blockSizeHorizontal,
                 top: 9 * globals.SizeConfig.blockSizeVertical,
                 child: SizedBox(
-                    width: 25 * globals.SizeConfig.blockSizeHorizontal,
+                    width: 29 * globals.SizeConfig.blockSizeHorizontal,
                     height: 100 * globals.SizeConfig.blockSizeVertical,
                     child: CallInitiationModule()),
               ),
-              Align(
-                alignment: Alignment.topRight,
+              Positioned(
+                left: 65 * globals.SizeConfig.blockSizeHorizontal,
+                top: 1 * globals.SizeConfig.blockSizeVertical,
                 child: SizedBox(
                     width: 34 * globals.SizeConfig.blockSizeHorizontal,
                     height: 100 * globals.SizeConfig.blockSizeVertical,
