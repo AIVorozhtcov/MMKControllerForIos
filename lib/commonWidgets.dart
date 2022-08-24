@@ -83,7 +83,7 @@ class _KeyboardBlockState extends State<KeyboardBlock> {
               },
               leftIcon: Icon(
                 Icons.circle,
-                size: 2 * globals.SizeConfig.blockSizeVertical,
+                size: globals.SizeConfig.blockSizeDiagonal,
                 color: Colors.black,
               ),
               mainAxisAlignment: MainAxisAlignment.spaceEvenly),
@@ -110,9 +110,9 @@ class _VolumeSliderState extends State<VolumeSlider> {
       IconButton(
           icon: isMute
               ? Icon(Icons.volume_off,
-                  size: 7 * globals.SizeConfig.blockSizeVertical)
+                  size: 3 * globals.SizeConfig.blockSizeDiagonal)
               : Icon(Icons.volume_up_rounded,
-                  size: 7 * globals.SizeConfig.blockSizeVertical),
+                  size: 3 * globals.SizeConfig.blockSizeDiagonal),
           onPressed: () {
             if (isMute) {
               setState(() {
@@ -124,23 +124,27 @@ class _VolumeSliderState extends State<VolumeSlider> {
               });
             }
           }),
-      SizedBox(
-        height: 3.5 * globals.SizeConfig.blockSizeVertical,
-        child: Slider(
-          value: globals.volumeValue,
-          max: 100,
-          onChanged: (double value) {
-            setState(() {
-              globals.volumeValue = value;
-            });
-          },
-          onChangeEnd: (double value) {
-            globals.volumeValue = value.roundToDouble();
-            String volumeChangeRequest =
-                "http://10.176.252.105:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
-                    globals.volumeValue.toString();
-            sendRequest(volumeChangeRequest);
-          },
+      Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: 0.5 * globals.SizeConfig.blockSizeHorizontal),
+        child: SizedBox(
+          height: 1.5 * globals.SizeConfig.blockSizeVertical,
+          child: Slider(
+            value: globals.volumeValue,
+            max: 100,
+            onChanged: (double value) {
+              setState(() {
+                globals.volumeValue = value;
+              });
+            },
+            onChangeEnd: (double value) {
+              globals.volumeValue = value.roundToDouble();
+              String volumeChangeRequest =
+                  "http://10.176.252.105:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
+                      globals.volumeValue.toString();
+              sendRequest(volumeChangeRequest);
+            },
+          ),
         ),
       ),
     ]);
@@ -168,10 +172,11 @@ class _BottomBarState extends State<BottomBar> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 0.5 * globals.SizeConfig.blockSizeHorizontal),
                 child: Container(
                   height: 8.5 * globals.SizeConfig.blockSizeVertical,
-                  width: 10 * globals.SizeConfig.blockSizeHorizontal,
+                  width: 11 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(),
                   child: OutlinedButton(
                     style: ButtonStyle(
@@ -188,8 +193,8 @@ class _BottomBarState extends State<BottomBar> {
                             style: TextStyle(
                                 color: Colors.black,
                                 //fontWeight: FontWeight.bold,
-                                fontSize: 3.5 *
-                                    globals.SizeConfig.blockSizeVertical))),
+                                fontSize: 1.5 *
+                                    globals.SizeConfig.blockSizeDiagonal))),
                     onPressed: () {
                       if (!checkPage('Content')) {
                         Navigator.pushReplacement(
@@ -203,10 +208,11 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 0.5 * globals.SizeConfig.blockSizeHorizontal),
                 child: Container(
                   height: 8.5 * globals.SizeConfig.blockSizeVertical,
-                  width: 10 * globals.SizeConfig.blockSizeHorizontal,
+                  width: 11 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(),
                   child: OutlinedButton(
                       style: ButtonStyle(
@@ -224,7 +230,7 @@ class _BottomBarState extends State<BottomBar> {
                             color: Colors.black,
                             //fontWeight: FontWeight.bold,
                             fontSize:
-                                3.5 * globals.SizeConfig.blockSizeVertical),
+                                1.5 * globals.SizeConfig.blockSizeDiagonal),
                       ),
                       onPressed: () {
                         if (!checkPage('VKS')) {
@@ -238,10 +244,11 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 0.5 * globals.SizeConfig.blockSizeHorizontal),
                 child: Container(
                   height: 8.5 * globals.SizeConfig.blockSizeVertical,
-                  width: 10 * globals.SizeConfig.blockSizeHorizontal,
+                  width: 11 * globals.SizeConfig.blockSizeHorizontal,
                   decoration: BoxDecoration(
 
                       /*border: Border(
@@ -263,8 +270,8 @@ class _BottomBarState extends State<BottomBar> {
                             style: TextStyle(
                                 color: Colors.black,
                                 //fontWeight: FontWeight.bold,
-                                fontSize: 3.5 *
-                                    globals.SizeConfig.blockSizeVertical))),
+                                fontSize: 1.5 *
+                                    globals.SizeConfig.blockSizeDiagonal))),
                     onPressed: () {
                       if (!checkPage('TV')) {
                         Navigator.pushReplacement(
@@ -285,7 +292,7 @@ class _BottomBarState extends State<BottomBar> {
           child: IconButton(
               icon: Icon(
                 Icons.exit_to_app,
-                size: 7 * globals.SizeConfig.blockSizeVertical,
+                size: 3 * globals.SizeConfig.blockSizeDiagonal,
               ),
               onPressed: () {
                 setState(() {
@@ -376,7 +383,7 @@ class _zoomPanelState extends State<zoomPanel> {
                 child: InkWell(
                     child: Ink(
                       child: Icon(Icons.zoom_in,
-                          size: 7 * globals.SizeConfig.blockSizeVertical),
+                          size: 3.5 * globals.SizeConfig.blockSizeDiagonal),
                     ),
                     onTapDown: (TapDownDetails) {
                       final requestResponse = zoomCamera("Zoom_plus");
@@ -401,14 +408,14 @@ class _zoomPanelState extends State<zoomPanel> {
                   child: Text(
                 "ZOOM",
                 style: TextStyle(
-                    fontSize: 2 * globals.SizeConfig.blockSizeVertical),
+                    fontSize: 1 * globals.SizeConfig.blockSizeDiagonal),
               )),
               Align(
                 alignment: Alignment(0.0, 0.8),
                 child: InkWell(
                     child: Ink(
                       child: Icon(Icons.zoom_out,
-                          size: 7 * globals.SizeConfig.blockSizeVertical),
+                          size: 3.5 * globals.SizeConfig.blockSizeDiagonal),
                     ),
                     onTapDown: (TapDownDetails) {
                       final requestResponse = zoomCamera("Zoom_minus");
@@ -464,9 +471,9 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
                     child: Icon(Icons.keyboard_arrow_up,
-                        size: 7 *
+                        size: 3 *
                             globals.SizeConfig
-                                .blockSizeVertical /*Icons.arrow_drop_up  Icons.arrow_circle_up_outlined*/),
+                                .blockSizeDiagonal /*Icons.arrow_drop_up  Icons.arrow_circle_up_outlined*/),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Up");
@@ -493,7 +500,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
                     child: Icon(Icons.keyboard_arrow_down,
-                        size: 7 * globals.SizeConfig.blockSizeVertical),
+                        size: 3 * globals.SizeConfig.blockSizeDiagonal),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Down");
@@ -520,7 +527,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
                     child: Icon(Icons.keyboard_arrow_left,
-                        size: 7 * globals.SizeConfig.blockSizeVertical),
+                        size: 3 * globals.SizeConfig.blockSizeDiagonal),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Left");
@@ -547,7 +554,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   splashFactory: NoSplash.splashFactory,
                   child: Ink(
                     child: Icon(Icons.keyboard_arrow_right,
-                        size: 7 * globals.SizeConfig.blockSizeVertical),
+                        size: 3 * globals.SizeConfig.blockSizeDiagonal),
                   ),
                   onTapDown: (TapDownDetails) {
                     final requestResponse = moveCamera("Right");
@@ -569,8 +576,8 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
             Center(
               child: ClipOval(
                 child: Container(
-                  height: 8 * globals.SizeConfig.blockSizeVertical,
-                  width: 4 * globals.SizeConfig.blockSizeHorizontal,
+                  height: 4 * globals.SizeConfig.blockSizeDiagonal,
+                  width: 4 * globals.SizeConfig.blockSizeDiagonal,
                   decoration: BoxDecoration(shape: BoxShape.circle),
                   child: OutlinedButton(
                       style: ButtonStyle(
@@ -580,7 +587,8 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                         'OK',
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 2 * globals.SizeConfig.blockSizeVertical),
+                            fontSize:
+                                0.75 * globals.SizeConfig.blockSizeDiagonal),
                       ),
                       onPressed: () async {
                         final numberInfo = await numberRequest(dialNumber);

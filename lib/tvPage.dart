@@ -42,13 +42,13 @@ class _TVPageState extends State<TVPage> {
           'Транслируется ТВ',
           style: TextStyle(fontSize: 80),
         )),
-        Center(
+        /*Center(
           child: SizedBox(
             width: 130 * globals.SizeConfig.blockSizeHorizontal,
             height: 130 * globals.SizeConfig.blockSizeVertical,
             child: Container(color: Colors.blue),
           ),
-        ),
+        ),*/
         /*Row(
           children: [
             Text("Текст запроса:"),

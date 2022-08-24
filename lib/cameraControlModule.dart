@@ -42,16 +42,16 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
         Align(
             alignment: Alignment(-0.5, 0.0),
             child: SizedBox(
-                height: 26.5 * SizeConfig.blockSizeVertical,
-                width: 13.3 * SizeConfig.blockSizeHorizontal,
+                height: 13.3 * SizeConfig.blockSizeDiagonal,
+                width: 13.3 * SizeConfig.blockSizeDiagonal,
                 child: cameraControlCircle())),
         Align(
             alignment: Alignment(0.7, 0.0),
             child: SizedBox(
-                height: 26.5 * SizeConfig.blockSizeVertical,
+                height: 20 * SizeConfig.blockSizeVertical,
                 width: 4 * SizeConfig.blockSizeHorizontal,
                 child: zoomPanel())),
-        Align(
+        /*Align(
           alignment: Alignment(-0.6, 0.67),
           child: SizedBox(
             width: 7.5 * SizeConfig.blockSizeHorizontal,
@@ -110,25 +110,25 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
               ],
             ),
           ),
-        ),
+        ),*/
         Align(
           alignment: Alignment(0.1, 0.7),
           child: SizedBox(
-            width: 7.5 * SizeConfig.blockSizeHorizontal,
-            height: 15 * SizeConfig.blockSizeVertical,
+            width: 6.5 * SizeConfig.blockSizeDiagonal,
+            height: 6.5 * SizeConfig.blockSizeDiagonal,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  height: 10 * SizeConfig.blockSizeVertical,
-                  width: 5 * SizeConfig.blockSizeHorizontal,
+                  height: 4.5 * SizeConfig.blockSizeDiagonal,
+                  width: 4.5 * SizeConfig.blockSizeDiagonal,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       border: Border.all(width: 1)),
                   child: IconButton(
                       icon: Icon(Icons.smart_screen,
-                          size: 7 * SizeConfig.blockSizeVertical),
+                          size: 3 * SizeConfig.blockSizeDiagonal),
                       onPressed: () {
                         setState(() {
                           showDialog(
@@ -144,8 +144,7 @@ class _CameraControlBlockState extends State<CameraControlBlock> {
                 Align(
                   alignment: Alignment(-0.7, 0.8),
                   child: Text('''Пресеты''',
-                      style: TextStyle(
-                          fontSize: 2 * SizeConfig.blockSizeVertical)),
+                      style: TextStyle(fontSize: SizeConfig.blockSizeDiagonal)),
                 )
               ],
             ),

@@ -95,14 +95,14 @@ class _NumpadState extends State<Numpad> {
               NumpadButton(haveBorder: false),
               Padding(
                   padding: EdgeInsets.only(
-                      right: 2.5 * SizeConfig.blockSizeHorizontal)),
+                      right: 4 * SizeConfig.blockSizeHorizontal)),
               NumpadButton(
                 text: '0',
                 onPressed: () => setValue('0'),
               ),
               Padding(
                   padding: EdgeInsets.only(
-                      right: 2 * SizeConfig.blockSizeHorizontal)),
+                      right: 1 * SizeConfig.blockSizeHorizontal)),
               NumpadButton(
                 haveBorder: false,
                 icon: Icons.backspace,

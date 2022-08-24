@@ -30,7 +30,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
           child: OutlinedButton(
             style: ButtonStyle(
                 fixedSize: MaterialStateProperty.all(Size(
-                    10 * SizeConfig.blockSizeHorizontal,
+                    13 * SizeConfig.blockSizeHorizontal,
                     8 * SizeConfig.blockSizeVertical)),
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -40,7 +40,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
               'Контент',
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 3.5 * SizeConfig.blockSizeVertical),
+                  fontSize: 1.5 * SizeConfig.blockSizeDiagonal),
             ),
             onPressed: () {
               if (!checkPage('Content')) {
@@ -62,7 +62,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                     child: Text(
                   dialNumber,
                   style: TextStyle(
-                      fontSize: 4 * SizeConfig.blockSizeVertical,
+                      fontSize: 1.75 * SizeConfig.blockSizeDiagonal,
                       fontWeight: FontWeight.bold),
                 )),
                 padding: EdgeInsets.all(5.0),
@@ -75,9 +75,9 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
               )),
         ),
         Align(
-          alignment: Alignment.centerLeft,
+          alignment: Alignment(0.0, 0.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RawMaterialButton(
                 onPressed: () {
@@ -97,9 +97,12 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 child: Icon(
                   Icons.call,
                   color: Colors.white,
-                  size: 6 * SizeConfig.blockSizeVertical,
+                  size: /*(SizeConfig.screenHeight > 800)
+                      ? 50
+                      : 30*/
+                      3 * SizeConfig.blockSizeDiagonal,
                 ),
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
                 shape: CircleBorder(),
               ),
               RawMaterialButton(
@@ -125,7 +128,7 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 elevation: 2.0,
                 fillColor: _micMute ? Colors.grey : Colors.white,
                 child: _micMute ? Icon(Icons.mic_off) : Icon(Icons.mic),
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
                 shape: CircleBorder(),
               ),
               RawMaterialButton(
@@ -207,9 +210,9 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
                 child: Icon(
                   Icons.call_end,
                   color: Colors.white,
-                  size: 6 * SizeConfig.blockSizeVertical,
+                  size: 3.0 * SizeConfig.blockSizeDiagonal,
                 ),
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
                 shape: CircleBorder(),
               ),
             ],
@@ -218,7 +221,12 @@ class _CallInitiationModuleState extends State<CallInitiationModule> {
         Align(
           alignment: Alignment.bottomLeft,
           child: OutlinedButton(
-              child: Text("Контент"),
+              style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all(Size(
+                    10 * SizeConfig.blockSizeHorizontal,
+                    3 * SizeConfig.blockSizeVertical)),
+              ),
+              child: Text("Контfgент"),
               onPressed: () {
                 Navigator.push(
                   context,

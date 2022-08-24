@@ -23,8 +23,13 @@ class VKSPage extends StatefulWidget {
   State<VKSPage> createState() => _VKSPageState();
 }
 
-String dialNumber = globals.SizeConfig.screenHeight.toString();
-//String dialNumber = '';
+/*String dialNumber = 'h' +
+    globals.SizeConfig.screenHeight.toString() +
+    'v' +
+    globals.SizeConfig.screenWidth.toString() +
+    'd' +
+    globals.SizeConfig.screenDiagonal.toString();*/
+String dialNumber = '';
 
 class _VKSPageState extends State<VKSPage> {
   onNumberChanged(String newNumberString) {
@@ -41,7 +46,7 @@ class _VKSPageState extends State<VKSPage> {
   }
 
   Future<String> contentSwitchResponse = sendRequest(
-      "http://10.176.105:8080/Videocom/Test/Model/22/VideoSwitch?param1=3&param2=2");
+      "http://10.176.252.105:8080/Videocom/Test/Model/22/VideoSwitch?param1=3&param2=2");
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +73,8 @@ class _VKSPageState extends State<VKSPage> {
                 top: 25 * globals.SizeConfig.blockSizeVertical,
                 left: 2 * globals.SizeConfig.blockSizeHorizontal,
                 child: SizedBox(
-                  height: 50 * globals.SizeConfig.blockSizeVertical,
-                  width: 32 * globals.SizeConfig.blockSizeHorizontal,
+                  height: 55 * globals.SizeConfig.blockSizeVertical,
+                  width: 35 * globals.SizeConfig.blockSizeHorizontal,
                   child: Opacity(
                     opacity: 0.7,
                     child: Container(
@@ -90,18 +95,18 @@ class _VKSPageState extends State<VKSPage> {
                 ),
               ),
               Positioned(
-                left: 36 * globals.SizeConfig.blockSizeHorizontal,
+                left: 39 * globals.SizeConfig.blockSizeHorizontal,
                 top: 9 * globals.SizeConfig.blockSizeVertical,
                 child: SizedBox(
-                    width: 29 * globals.SizeConfig.blockSizeHorizontal,
+                    width: 27 * globals.SizeConfig.blockSizeHorizontal,
                     height: 100 * globals.SizeConfig.blockSizeVertical,
                     child: CallInitiationModule()),
               ),
               Positioned(
-                left: 65 * globals.SizeConfig.blockSizeHorizontal,
+                left: 68 * globals.SizeConfig.blockSizeHorizontal,
                 top: 1 * globals.SizeConfig.blockSizeVertical,
                 child: SizedBox(
-                    width: 34 * globals.SizeConfig.blockSizeHorizontal,
+                    width: 31 * globals.SizeConfig.blockSizeHorizontal,
                     height: 100 * globals.SizeConfig.blockSizeVertical,
                     child: CameraControlBlock()),
               ),

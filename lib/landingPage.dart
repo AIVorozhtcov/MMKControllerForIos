@@ -32,8 +32,8 @@ class _landingPageState extends State<landingPage> {
         Align(
           alignment: Alignment(0.0, 0.45),
           child: SizedBox(
-            height: 12.5 * globals.SizeConfig.blockSizeVertical,
-            width: 12.5 * globals.SizeConfig.blockSizeHorizontal,
+            height: 10 * globals.SizeConfig.blockSizeVertical,
+            width: 14 * globals.SizeConfig.blockSizeHorizontal,
             child: OutlinedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),

@@ -59,10 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(globals.SizeConfig.blockSizeHorizontal),
                 child: SizedBox(
-                  height: 75,
-                  width: 150,
+                  height: 10 * globals.SizeConfig.blockSizeVertical,
+                  width: 12 * globals.SizeConfig.blockSizeHorizontal,
                   child: OutlinedButton(
                       style: ButtonStyle(
                           backgroundColor:
@@ -74,7 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                           BorderRadius.circular(18.0)))),
                       child: Text(
                         "Контент",
-                        style: TextStyle(color: Colors.black, fontSize: 30),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize:
+                                1.5 * globals.SizeConfig.blockSizeDiagonal),
                       ),
                       onPressed: () {
                         Navigator.push(
@@ -86,10 +89,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(globals.SizeConfig.blockSizeHorizontal),
                 child: SizedBox(
-                  height: 75,
-                  width: 150,
+                  height: 10 * globals.SizeConfig.blockSizeVertical,
+                  width: 12 * globals.SizeConfig.blockSizeHorizontal,
                   child: OutlinedButton(
                       style: ButtonStyle(
                           backgroundColor:
@@ -101,7 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                           BorderRadius.circular(18.0)))),
                       child: Text(
                         "ВКС",
-                        style: TextStyle(color: Colors.black, fontSize: 30),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize:
+                                1.5 * globals.SizeConfig.blockSizeDiagonal),
                       ),
                       onPressed: () {
                         Navigator.push(
@@ -113,10 +119,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(globals.SizeConfig.blockSizeHorizontal),
                 child: SizedBox(
-                  height: 75,
-                  width: 150,
+                  height: 10 * globals.SizeConfig.blockSizeVertical,
+                  width: 12 * globals.SizeConfig.blockSizeHorizontal,
                   child: OutlinedButton(
                       style: ButtonStyle(
                           backgroundColor:
@@ -127,7 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       borderRadius:
                                           BorderRadius.circular(18.0)))),
                       child: Text("ТВ",
-                          style: TextStyle(color: Colors.black, fontSize: 30)),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize:
+                                  1.5 * globals.SizeConfig.blockSizeDiagonal)),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -147,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: IconButton(
               icon: Icon(
                 Icons.exit_to_app,
-                size: 40,
+                size: 2 * globals.SizeConfig.blockSizeDiagonal,
               ),
               onPressed: () {
                 setState(() {
@@ -156,8 +165,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           content: SizedBox(
-                            height: 100,
-                            width: 150,
+                            height: 10 * globals.SizeConfig.blockSizeVertical,
+                            width: 7 * globals.SizeConfig.blockSizeHorizontal,
                             child: Stack(
                               children: [
                                 Align(
