@@ -177,7 +177,7 @@ class _CameraViewsState extends State<CameraViews> {
                   final requestResponse = useCameraPreset("1");
                   print(requestResponse);
 
-                  setState(() {
+                  /*setState(() {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -185,7 +185,7 @@ class _CameraViewsState extends State<CameraViews> {
                             content: Text('Первый вид камеры'),
                           );
                         });
-                  });
+                  });*/
                 }),
             OutlinedButton(
                 child: Text('2'),
@@ -193,7 +193,7 @@ class _CameraViewsState extends State<CameraViews> {
                   final requestResponse = useCameraPreset("2");
                   print(requestResponse);
 
-                  setState(() {
+                  /*setState(() {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -201,7 +201,7 @@ class _CameraViewsState extends State<CameraViews> {
                             content: Text('Второй вид камеры'),
                           );
                         });
-                  });
+                  });*/
                 })
           ],
         ),
@@ -213,7 +213,7 @@ class _CameraViewsState extends State<CameraViews> {
                   final requestResponse = useCameraPreset("3");
                   print(requestResponse);
 
-                  setState(() {
+                  /*setState(() {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -221,7 +221,7 @@ class _CameraViewsState extends State<CameraViews> {
                             content: Text('Третий вид камеры'),
                           );
                         });
-                  });
+                  });*/
                 }),
             OutlinedButton(
                 child: Text('4'),
@@ -229,7 +229,7 @@ class _CameraViewsState extends State<CameraViews> {
                   final requestResponse = useCameraPreset("4");
                   print(requestResponse);
 
-                  setState(() {
+                  /*setState(() {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -237,7 +237,7 @@ class _CameraViewsState extends State<CameraViews> {
                             content: Text('Четвертый вид камеры'),
                           );
                         });
-                  });
+                  });*/
                 })
           ],
         )

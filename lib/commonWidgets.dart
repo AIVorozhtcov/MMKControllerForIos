@@ -117,10 +117,18 @@ class _VolumeSliderState extends State<VolumeSlider> {
             if (isMute) {
               setState(() {
                 isMute = false;
+                String volumeChangeRequest =
+                    "http://10.176.252.105:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
+                        globals.volumeValue.toString();
+                sendRequest(volumeChangeRequest);
               });
             } else {
               setState(() {
                 isMute = true;
+                String volumeChangeRequest =
+                    "http://10.176.252.105:8080/Videocom/Test/Model/22/AudioOut?param1=1&param2=" +
+                        "0";
+                sendRequest(volumeChangeRequest);
               });
             }
           }),
@@ -393,7 +401,7 @@ class _zoomPanelState extends State<zoomPanel> {
                       final requestResponse = zoomCamera("Stop");
                       print(requestResponse);
 
-                      setState(() {
+                      /*setState(() {
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {
@@ -401,7 +409,7 @@ class _zoomPanelState extends State<zoomPanel> {
                                   content:
                                       Text('Камера перестала приближаться'));
                             });
-                      });
+                      });*/
                     }),
               ),
               Center(
@@ -425,14 +433,14 @@ class _zoomPanelState extends State<zoomPanel> {
                       final requestResponse = zoomCamera("Stop");
                       print(requestResponse);
 
-                      setState(() {
+                      /*setState(() {
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
                                   content: Text('Камера перестала отдаляться'));
                             });
-                      });
+                      });*/
                     }),
               ),
             ])),
@@ -481,7 +489,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   onTapUp: (TapUpDetails) {
                     final requestResponse = moveCamera("Stop");
 
-                    setState(() {
+                    /*setState(() {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -489,7 +497,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                                 content:
                                     Text('Камера перестала двигаться вверх'));
                           });
-                    });
+                    });*/
                   }),
             ),
             Align(
@@ -508,7 +516,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   onTapUp: (TapUpDetails) {
                     final requestResponse = moveCamera("Stop");
 
-                    setState(() {
+                    /*setState(() {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -516,7 +524,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                                 content:
                                     Text('Камера перестала двигаться вниз'));
                           });
-                    });
+                    });*/
                   }),
             ),
             Align(
@@ -535,7 +543,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   onTapUp: (TapUpDetails) {
                     final requestResponse = moveCamera("Stop");
 
-                    setState(() {
+                    /*setState(() {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -543,7 +551,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                                 content:
                                     Text('Камера перестала двигаться влево'));
                           });
-                    });
+                    });*/
                   }),
             ),
             Align(
@@ -562,7 +570,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                   onTapUp: (TapUpDetails) {
                     final requestResponse = moveCamera("Stop");
 
-                    setState(() {
+                    /*setState(() {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -570,7 +578,7 @@ class _cameraControlCircleState extends State<cameraControlCircle> {
                                 content:
                                     Text('Камера перестала двигаться вправо'));
                           });
-                    });
+                    });*/
                   }),
             ),
             Center(
